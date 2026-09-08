@@ -1,0 +1,133 @@
+Low-Cost Water Filtration Project
+1. Project Title
+Low-Cost Water Filtration Using Sand, Gravel and Charcoal
+2. Introduction
+Water is essential for life, but dirty water may contain soil, dust and other visible impurities. This project demonstrates a simple, low-cost filtration method using gravel, sand and charcoal.
+The filter helps improve the clarity of water, but it does not make contaminated water safe for drinking. Filtered water should not be consumed unless it is properly disinfected and tested.
+3. Aim
+To build a simple water filter using easily available materials and compare the clarity of water before and after filtration.
+4. Materials Required
+Plastic bottle
+Gravel/pebbles
+Clean coarse sand
+Clean fine sand
+Activated charcoal
+Cotton or clean cloth
+Two transparent glasses
+Dirty water
+Measuring cup
+Optional: Arduino Uno
+Optional: turbidity sensor
+Jumper wires
+5. Working Principle
+The filter works in layers:
+Dirty water → Gravel → Coarse sand → Fine sand → Charcoal → Cotton → Filtered water
+Gravel: Removes larger particles.
+Coarse sand: Traps medium-sized particles.
+Fine sand: Removes smaller suspended particles.
+Charcoal: Can reduce some odors and certain dissolved substances.
+Cotton/cloth: Helps prevent filter material from passing into the collected water.
+6. Procedure
+Take a clean plastic bottle.
+Cut off the bottom of the bottle.
+Turn the bottle upside down.
+Place cotton or clean cloth near the bottle opening.
+Add a layer of charcoal.
+Add fine sand above the charcoal.
+Add coarse sand.
+Add gravel at the top.
+Place a glass below the bottle opening.
+Slowly pour dirty water into the filter.
+Collect the filtered water.
+Compare the water clarity before and after filtration.
+Layer Arrangement
+       DIRTY WATER
+            ↓
+     ┌─────────────┐
+     │   GRAVEL    │
+     ├─────────────┤
+     │ COARSE SAND │
+     ├─────────────┤
+     │  FINE SAND  │
+     ├─────────────┤
+     │  CHARCOAL   │
+     ├─────────────┤
+     │ COTTON/CLOTH│
+     └──────┬──────┘
+            ↓
+      FILTERED WATER
+7. Arduino Code
+If you want to make the project more advanced, an Arduino and turbidity sensor can be used to measure water clarity.
+Components
+Arduino Uno
+Turbidity sensor
+Jumper wires
+USB cable
+Computer
+Connections
+Turbidity Sensor
+Arduino Uno
+VCC
+5V
+GND
+GND
+AO
+A0
+Code
+int sensorPin = A0;
+int sensorValue = 0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  sensorValue = analogRead(sensorPin);
+
+  Serial.print("Turbidity Sensor Value: ");
+  Serial.println(sensorValue);
+
+  if (sensorValue < 300) {
+    Serial.println("Water is relatively clear");
+  }
+  else if (sensorValue < 600) {
+    Serial.println("Water is moderately cloudy");
+  }
+  else {
+    Serial.println("Water is very cloudy");
+  }
+
+  Serial.println("--------------------");
+
+  delay(2000);
+}
+Important
+The exact sensor readings and cutoff values depend on the particular turbidity sensor and its calibration. For a school demonstration, use the readings mainly to compare the same water before and after filtration, rather than treating the numbers as a drinking-water safety measurement.
+8. Observation Table
+Test
+Turbidity Reading
+Appearance
+Before filtration
+______
+Very cloudy
+After filtration
+______
+Clearer
+Second test
+______
+______
+9. Result
+The sand, gravel and charcoal filter reduces visible suspended particles and improves the apparent clarity of the water. The turbidity sensor can be used to demonstrate the change quantitatively.
+10. Advantages
+Low cost
+Easy to construct
+Uses easily available materials
+Simple to demonstrate
+Does not require electricity for the basic filter
+11. Limitations
+It does not remove all microorganisms.
+It may not remove all dissolved chemicals or salts.
+Clear-looking water is not necessarily safe to drink.
+The filter materials must be clean.
+12. Conclusion
+The project demonstrates how different filtration layers can remove suspended impurities from water. By adding an Arduino and turbidity sensor, the improvement in water clarity can also be measured electronically.
